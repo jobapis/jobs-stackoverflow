@@ -37,7 +37,7 @@ You can even chain them if you'd like.
 ```php
 // Add parameters via the set() method
 $query->set('l', 'Chicago, IL')
-    ->set('limit', '20');
+    ->set('pg', '2');
 ```
  
 Then inject the query object into the provider.
