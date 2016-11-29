@@ -21,6 +21,15 @@ class StackoverflowQuery extends AbstractQuery
     protected $l;
 
     /**
+     * pg
+     *
+     * Page number
+     *
+     * @var integer
+     */
+    protected $pg;
+
+    /**
      * d
      *
      * Distance from location
