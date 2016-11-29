@@ -24,8 +24,12 @@ class StackoverflowProvider extends AbstractProvider
         // Set date posted
         $job->setDatePostedAsString($payload['pubDate']);
 
-        // Set categories $payload['category']
-        // Set author $payload['author']['name']
+        // Set categories
+        if (isset($payload['category']) && is_array($payload['category'])) {
+            foreach ($payload['category'] as $category) {
+                $job->setExperienceRequirements($category);
+            }
+        }
 
         return $job;
     }
