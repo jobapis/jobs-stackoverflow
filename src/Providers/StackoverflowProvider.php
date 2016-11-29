@@ -2,7 +2,7 @@
 
 use JobApis\Jobs\Client\Job;
 
-class JobinventoryProvider extends AbstractProvider
+class StackoverflowProvider extends AbstractProvider
 {
     /**
      * Returns the standardized job object
@@ -14,23 +14,18 @@ class JobinventoryProvider extends AbstractProvider
     public function createJobObject($payload)
     {
         $job = new Job([
-            'title' => $payload['title'],
-            'name' => $payload['title'],
             'description' => $payload['description'],
+            'location' => $payload['location'],
+            'name' => $payload['title'],
+            'title' => $payload['title'],
             'url' => $payload['link'],
         ]);
 
+        // Set date posted
         $job->setDatePostedAsString($payload['pubDate']);
 
-        // Set a location if it was set in the query
-        if ($this->query && $this->query->get('l')) {
-            $job->setLocation($this->query->get('l'));
-        }
-
-        // Set a company if it was set in the query
-        if ($this->query && $this->query->get('company')) {
-            $job->setCompany($this->query->get('company'));
-        }
+        // Set categories $payload['category']
+        // Set author $payload['author']['name']
 
         return $job;
     }
@@ -43,10 +38,11 @@ class JobinventoryProvider extends AbstractProvider
     public function getDefaultResponseFields()
     {
         return [
-            'title',
-            'link',
             'description',
+            'link',
+            'location',
             'pubDate',
+            'title',
         ];
     }
 
