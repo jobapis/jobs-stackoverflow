@@ -1,0 +1,40 @@
+{
+    "name": "jobapis/jobs-stackoverflow",
+    "type": "library",
+    "description": "Making it simple to integrate your application with Stack Overflows's Career RSS Feed.",
+    "keywords": [
+        "jobs",
+        "api client",
+        "object",
+        "stack overflow"
+    ],
+    "homepage": "https://github.com/jobapis/jobs-stackoverflow",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Karl Hughes",
+            "email": "khughes.me@gmail.com",
+            "homepage": "https://github.com/karllhughes"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "jobapis/jobs-common": "^2.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.6",
+        "phpunit/php-code-coverage": "~2.0",
+        "mockery/mockery": ">=0.9.4",
+        "squizlabs/php_codesniffer": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JobApis\\Jobs\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JobApis\\Jobs\\Client\\Test\\": "tests/src/"
+        }
+    }
+}
