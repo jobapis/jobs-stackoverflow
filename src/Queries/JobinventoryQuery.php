@@ -1,6 +1,6 @@
 <?php namespace JobApis\Jobs\Client\Queries;
 
-class JobinventoryQuery extends AbstractQuery
+class StackoverflowQuery extends AbstractQuery
 {
     /**
      * q
@@ -21,115 +21,162 @@ class JobinventoryQuery extends AbstractQuery
     protected $l;
 
     /**
-     * limit
+     * d
      *
-     * Number of results per page
-     *
-     * @var integer
-     */
-    protected $limit;
-
-    /**
-     * p
-     *
-     * Page
+     * Distance from location
      *
      * @var integer
      */
-    protected $p;
+    protected $d;
 
     /**
-     * radius
+     * sort
      *
-     * Miles away to search
+     * Sort order. Should be one of the following:
+     *  "p" = newest
+     *  "i" = match
+     *  "y" = salary
+     *
+     * @var string
+     */
+    protected $sort;
+
+    /**
+     * u
+     *
+     * Unit of distance ("Miles" is the only option I've seen)
+     *
+     * @var string
+     */
+    protected $u;
+
+    /**
+     * tl
+     *
+     * Technology liked
+     *
+     * @var string
+     */
+    protected $tl;
+
+    /**
+     * td
+     *
+     * Technology disliked
+     *
+     * @var string
+     */
+    protected $td;
+
+    /**
+     * s
+     *
+     * Minimum salary
      *
      * @var integer
      */
-    protected $radius;
-
-    /**
-     * t
-     *
-     * Job title.
-     *
-     * @var string
-     */
-    protected $t;
-
-    /**
-     * company
-     *
-     * @var string
-     */
-    protected $company;
-
-    /**
-     * date
-     *
-     * Number of days back to search.
-     *
-     * @var integer
-     */
-    protected $date;
-
-    /**
-     * jobtype
-     *
-     * Valid options include:
-     *  Full-time
-     *  Contract
-     *  Part-time
-     *  Temporary
-     *  Seasonal
-     *
-     * @var string
-     */
-    protected $jobtype;
-
-    /**
-     */
-
-    /**
-     * education
-     *
-     * Valid options include:
-     *  Professional
-     *  High School
-     *  Doctorate
-     *  Associate's Degree
-     *  Some College
-     *  Bachelor's Degree
-     *
-     * @var string
-     */
-    protected $education;
+    protected $s;
 
     /**
      * c
      *
-     * Category (see website for options).
+     * Currency (eg: USD)
      *
      * @var string
      */
     protected $c;
 
     /**
-     * o
+     * e
      *
-     * Job source (see website for options).
+     * Offers equity (eg: "true")
      *
-     * @var string
+     * @var boolean
      */
-    protected $o;
+    protected $e;
 
     /**
-     * experience
+     * r
      *
-     * Experience required (see website for options).
+     * Offers remote (eg: "true")
+     *
+     * @var boolean
+     */
+    protected $r;
+
+    /**
+     * v
+     *
+     * Offers Visa sponsorship (eg: "true")
+     *
+     * @var boolean
+     */
+    protected $v;
+
+    /**
+     * t
+     *
+     * Offers Relocation (eg: "true")
+     *
+     * @var boolean
+     */
+    protected $t;
+
+    /**
+     * ms
+     *
+     * Minimum experience
      *
      * @var string
      */
-    protected $experience;
+    protected $ms;
+
+    /**
+     * mxs
+     *
+     * Max experience
+     *
+     * @var string
+     */
+    protected $mxs;
+
+    /**
+     * j
+     *
+     * Job type:
+     *  "permanent"
+     *  "contract"
+     *
+     * @var string
+     */
+    protected $j;
+
+    /**
+     * cl
+     *
+     * Companies to include
+     *
+     * @var string
+     */
+    protected $cl;
+
+    /**
+     * cd
+     *
+     * Companies to exclude
+     *
+     * @var string
+     */
+    protected $cd;
+
+    /**
+     * i
+     *
+     * Industry
+     *
+     * @var string
+     */
+    protected $i;
 
     /**
      * Get baseUrl
@@ -138,7 +185,7 @@ class JobinventoryQuery extends AbstractQuery
      */
     public function getBaseUrl()
     {
-        return 'http://www.jobinventory.com/rss';
+        return 'https://stackoverflow.com/jobs/feed';
     }
 
     /**
@@ -149,17 +196,5 @@ class JobinventoryQuery extends AbstractQuery
     public function getKeyword()
     {
         return $this->q;
-    }
-
-    /**
-     * Required parameters
-     *
-     * @return array
-     */
-    protected function requiredAttributes()
-    {
-        return [
-            'q',
-        ];
     }
 }
