@@ -106,6 +106,7 @@ class StackoverflowProviderTest extends \PHPUnit_Framework_TestCase
         $client = new StackoverflowProvider($query);
 
         $results = $client->getJobs();
+        var_dump($results); exit;
 
         $this->assertInstanceOf('JobApis\Jobs\Client\Collection', $results);
 

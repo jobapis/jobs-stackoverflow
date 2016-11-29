@@ -24,11 +24,13 @@ class StackoverflowProvider extends AbstractProvider
         // Set date posted
         $job->setDatePostedAsString($payload['pubDate']);
 
-        // Set categories
+        // Set skills
         if (isset($payload['category']) && is_array($payload['category'])) {
+            $skills = [];
             foreach ($payload['category'] as $category) {
-                $job->setExperienceRequirements($category);
+                $skills[] = $category;
             }
+            $job->setSkills(implode(', ', $skills));
         }
 
         return $job;
