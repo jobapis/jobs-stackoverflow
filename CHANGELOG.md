@@ -1,7 +1,7 @@
 # Changelog
-All Notable changes to `jobs-jobinventory` will be documented in this file
+All Notable changes to `jobs-stackoverflow` will be documented in this file
 
-## 0.1.0 - 2016-10-29
+## 0.1.0 - 2016-11-29
 
 ### Added
 - Initial Release
