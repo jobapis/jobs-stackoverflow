@@ -1,4 +1,4 @@
-# stackoverflow Jobs Client
+# Stack Overflow Jobs Client
 
 [![Latest Version](https://img.shields.io/github/release/jobapis/jobs-stackoverflow.svg?style=flat-square)](https://github.com/jobapis/jobs-stackoverflow/releases)
 [![Software License](https://img.shields.io/badge/license-APACHE%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
