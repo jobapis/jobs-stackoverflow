@@ -44,7 +44,7 @@ Then inject the query object into the provider.
 
 ```php
 // Instantiating a provider with a query object
-$client = new JobApis\Jobs\Client\Provider\StackoverflowProvider($query);
+$client = new JobApis\Jobs\Client\Providers\StackoverflowProvider($query);
 ```
 
 And call the "getJobs" method to retrieve results.
